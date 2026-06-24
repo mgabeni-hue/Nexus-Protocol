@@ -1,0 +1,43 @@
+<!DOCTYPE html><html><head><title>Nexus API Docs</title>
+<meta charset="UTF-8"><style>
+body{background:#0a0a0a;color:#e0e0e0;font-family:-apple-system,system-ui,sans-serif;padding:40px;max-width:700px;margin:0 auto}
+h1{color:#00ff88}h2{color:#00ff88;margin-top:30px}code{background:#111;padding:3px 8px;border-radius:3px;color:#ffd700;font-size:13px}
+.endpoint{background:#111;border:1px solid #222;padding:15px;border-radius:8px;margin:15px 0}
+.method{color:#00ff88;font-weight:bold}.path{color:#ffd700}a{color:#00ff88}
+</style></head><body>
+<h1>Nexus Protocol API</h1>
+<p>Immutable proof of existence on Polygon. No API key required.</p>
+
+<h2>Smart Contract</h2>
+<p><code>0xAFaC5727957C890BbFB99BC6b1A1961FDbe08040</code></p>
+
+<div class="endpoint">
+<span class="method">witness</span>(bytes32 hash) <span style="color:#888">payable</span>
+<p>Record a hash permanently on Polygon. Send 0.0003 POL.</p>
+<p>Example: <code>witness(0xabc123...)</code></p>
+</div>
+
+<div class="endpoint">
+<span class="method">verify</span>(bytes32 hash, uint256 id) → bool
+<p>Check if a hash exists at a specific ID.</p>
+</div>
+
+<div class="endpoint">
+<span class="method">totalRecords</span>() → uint256
+<p>Get total number of hashes recorded.</p>
+</div>
+
+<div class="endpoint">
+<span class="method">creatorRewards</span>() → uint256
+<p>Accumulated creator rewards in wei.</p>
+</div>
+
+<h2>Python SDK</h2>
+<p><code>pip install nexus-witness</code></p>
+<p><code>from nexus import witness; witness("my data")</code></p>
+
+<h2>RPC Endpoint</h2>
+<p>Any Polygon RPC works. No permission needed.</p>
+
+<a href="index.html">← Back to Dashboard</a>
+</body></html>
