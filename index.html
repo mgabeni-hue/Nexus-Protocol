@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head>
+<title>Nexus Protocol — Proof of Existence</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#e0e0e0;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.hero{padding:80px 20px;text-align:center}
+h1{font-size:40px;color:#00ff88;letter-spacing:4px;margin-bottom:10px}
+.sub{color:#666;font-size:14px;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6}
+.btn{display:inline-block;padding:12px 30px;background:#00ff88;color:#000;text-decoration:none;border-radius:5px;font-weight:bold;margin:10px}
+.btn.outline{background:transparent;border:2px solid #00ff88;color:#00ff88}
+.section{max-width:800px;margin:60px auto;padding:0 20px}
+h2{color:#00ff88;font-size:20px;margin-bottom:15px}
+p{color:#888;line-height:1.8;margin-bottom:15px}
+code{background:#111;padding:3px 8px;border-radius:3px;color:#ffd700;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:#111;border:1px solid #222;border-radius:8px;padding:20px}
+.card h3{color:#fff;margin-bottom:10px;font-size:16px}
+.card p{font-size:13px}
+.footer{text-align:center;padding:40px;color:#444;font-size:12px}
+a{color:#00ff88}
+</style></head><body>
+
+<div class="hero">
+<h1>NEXUS PROTOCOL</h1>
+<p class="sub">Immutable proof of existence for the digital age.<br>No company. No API key. No off switch.</p>
+<a href="#use" class="btn">Use It Now</a>
+<a href="#docs" class="btn outline">Documentation</a>
+</div>
+
+<div class="section" id="use">
+<h2>Witness a Hash</h2>
+<p>Submit any 32-byte hash to the Witness contract. It will be recorded permanently on Polygon. Anyone can verify it later.</p>
+<p>Contract: <code>0xAFaC5727957C890BbFB99BC6b1A1961FDbe08040</code></p>
+<p>Function: <code>witness(bytes32 hash)</code></p>
+<p>Fee: <code>0.0003 POL</code> per hash</p>
+<a href="https://polygonscan.com/address/0xAFaC5727957C890BbFB99BC6b1A1961FDbe08040#writeContract" class="btn" target="_blank">Submit on Polygonscan</a>
+</div>
+
+<div class="section" id="docs">
+<h2>Documentation</h2>
+<div class="grid">
+<div class="card"><h3>Record a Hash</h3><p>Call <code>witness(bytes32 hash)</code> with 0.0003 POL. Your hash is timestamped permanently.</p></div>
+<div class="card"><h3>Verify a Hash</h3><p>Call <code>verify(bytes32 hash)</code> to check if and when a hash was recorded.</p></div>
+<div class="card"><h3>Claim Rewards</h3><p>Creators earn 90% of all fees. Call <code>claimRewards()</code> to withdraw.</p></div>
+<div class="card"><h3>No Permission Needed</h3><p>No signup. No KYC. No API key. Just call the contract.</p></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Live Stats</h2>
+<p>Total Records: <span id="records">Loading...</span></p>
+<p>Contract: <a href="https://polygonscan.com/address/0xAFaC5727957C890BbFB99BC6b1A1961FDbe08040" target="_blank">View on Polygonscan</a></p>
+</div>
+
+<div class="footer">Nexus Protocol — Immutable proof, forever. No company behind this. Just code.</div>
+
+<script>
+fetch('https://polygon-mainnet.g.alchemy.com/v2/y7MwEMLQIzvcTls1UbNMM',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',method:'eth_call',params:[{to:'0xAFaC5727957C890BbFB99BC6b1A1961FDbe08040',data:'0x75e36616'},'latest'],id:1})}).then(r=>r.json()).then(d=>{document.getElementById('records').textContent=parseInt(d.result,16)})
+</script>
+</body></html>
