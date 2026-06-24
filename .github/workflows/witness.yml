@@ -1,7 +1,7 @@
 name: Nexus Witness
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '15,45 * * * *'  # Fires at :15 and :45 past each minute
   workflow_dispatch:
 
 jobs:
